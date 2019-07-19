@@ -1,0 +1,26 @@
+%BLOCK lattice_cart
+25.36 0 0
+0 2.4595 0
+0 0 15
+%ENDBLOCK lattice_cart
+
+%BLOCK POSITIONS_abs
+C   0.000000000000000   0.000000000000000   0.000000000000000 
+C   0.71 1.2297 0
+C   2.13 1.2297 0
+C   2.84 0 0
+C   4.26 0 0
+C   4.97 1.2297 0
+C   6.39 1.2297 0
+C   7.1 0 0
+C   8.52 0 0
+C   9.23 1.2297 0
+C   10.65 1.2297 0
+C   11.36 0 0
+%ENDBLOCK POSITIONS_abs
+
+symmetry_generate
+
+snap_to_symmetry
+
+kpoints_mp_spacing 0.04

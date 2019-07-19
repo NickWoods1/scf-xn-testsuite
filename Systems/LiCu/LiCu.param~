@@ -1,0 +1,53 @@
+task singlepoint
+basis_precision fine
+nextra_bands 6
+xc_functional PBE
+fix_occupancy false
+metals_method dm
+mixing_scheme pulay
+max_scf_cycles 100
+elec_energy_tol    0.0000000001
+mix_history_length 30
+rand_seed 654321
+opt_strategy speed
+page_wvfns 0
+
+mix_charge_amp 0.8
+mix_charge_gmax 1.5
+!mix_metric_q 0.0
+
+write_checkpoint none
+write_bib false
+spin_polarized false 
+mix_cut_off_energy 100000
+
+%block devel_code
+
+ML_params:
+alpha = 0.0001 
+R = 0.1
+sigma = 0.5
+sigma_bar = 0.1
+scalar_precondition
+MSB1
+:ML_params
+
+PP_params:
+n_linear_steps
+PP_kerker
+PP_n = 3
+PP_scaling = 0.1
+:PP_params
+
+parallel: gvector=1
+kpoint=4
+band=1 :endparallel
+
+susceptibility_model:
+TF
+CG
+dens_prefactor = 0.1 
+dens_power = 1.0
+:susceptibility_model
+
+%endblock devel_code

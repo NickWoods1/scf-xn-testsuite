@@ -1,0 +1,12 @@
+%block lattice_abc
+  15.0 15.0 15.0
+  90      90      90
+%endblock lattice_abc
+
+%block positions_frac
+Ni 0.0 0.0 0.0
+%endblock positions_frac
+
+symmetry_generate
+
+kpoints_mp_spacing 0.04

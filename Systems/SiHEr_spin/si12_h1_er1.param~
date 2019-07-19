@@ -1,0 +1,63 @@
+comment :  Si12+H  + Er sub-surface
+task  = singlepoint
+basis_precision = coarse
+fix_occupancy = false
+xc_functional = PBE
+spin_polarised = false
+!spin_fix = 10
+!spin = 15
+
+!num_occ_cycles = 2
+
+iprint : 1
+opt_strategy : speed
+page_wvfns : 0
+max_scf_cycles = 100
+rand_seed : 123456778
+metals_method = dm
+
+mixing_scheme = pulay
+!mix_history_length = 40
+mix_cut_off_energy 100000
+
+!mixing_scheme = Pulay
+mix_history_length = 100
+mix_charge_amp = 0.8
+!mix_charge_gmax = 1.5
+!mix_spin_amp = 2.0
+!mix_spin_gmax = 1.5
+
+!mix_cut_off_energy = 300 ev
+!mix_spin_amp = 0.7
+
+!devel_code : new_dm new_mixing=0.9
+
+!devel_code : new_edft
+
+%block devel_code
+
+ML_params:
+alpha = 0.0001 
+R = 0.1
+sigma = 1.5
+sigma_bar = 0.1
+kerker_precondition
+MSB2
+:ML_params
+
+PP_params:
+n_linear_steps
+PP_linear
+PP_n = 3
+PP_scaling = 0.1
+:PP_params
+
+susceptibility_model:
+kerker
+CG
+dens_prefactor = 0.1 
+dens_power = 1.0
+:susceptibility_model
+
+
+%endblock devel_code

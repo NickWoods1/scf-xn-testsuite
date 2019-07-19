@@ -1,0 +1,35 @@
+comment         = nmr testing
+task : singlepoint
+#task : magres
+#magres_task : NMR
+#task  : bandstructure
+
+#relativistic_treatment : KOELLING-HARMON	#default for geometry optimisation, not used for NMR
+#relativistic_treatment : SCHROEDINGER
+#relativistic_treatment : ZORA
+
+xc_functional : PBE
+fix_occupancy = true
+opt_strategy : speed
+cut_off_energy  = 300 eV
+max_scf_cycles : 500
+metals_method : dm
+mixing_scheme : broyden
+#num_proc_in_smp : 8
+mix_charge_amp 0.2
+
+ELEC_ENERGY_TOL	     : 0.00001
+ELEC_FORCE_TOL	     : 0.005
+ELEC_CONVERGENCE_WIN : 3
+
+GEOM_ENERGY_TOL      : 0.00002
+GEOM_FORCE_TOL	     : 0.01		#0.05 default, 0.01 is better
+GEOM_MODULUS_EST     : 100 GPa
+GEOM_MAX_ITER        : 200
+
+MAGRES_MAX_CG_STEPS  : 10000
+MAGRES_CONV_TOL      : 0.000000001
+
+BS_MAX_ITER          : 10000
+BS_MAX_CG_STEPS      : 10000
+BS_EIGENVALUE_TOL    : 0.000000001

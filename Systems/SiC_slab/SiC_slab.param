@@ -1,0 +1,50 @@
+!======= Generic Params =======!
+
+task singlepoint
+xc_functional pbe
+basis_precision extreme
+fix_occupancy false
+metals_method dm
+spin_polarized false 
+smearing_scheme gaussian
+rand_seed 654321
+write_checkpoint none
+write_bib false
+page_wvfns 0
+opt_strategy_bias +3
+
+!======= SCF Params =======!
+
+mixing_scheme pulay
+elec_energy_tol 0.0000000001
+max_scf_cycles 1000
+mix_history_length 30
+mix_charge_amp 0.8
+mix_charge_gmax 1.5
+mix_spin_amp 2.0
+mix_spin_gmax 1.5
+mix_metric_q -1
+!mix_cutoff_energy
+
+%block devel_code
+
+ML_params:
+alpha = 0.0001 
+R = 0.1
+sigma = 0.5
+sigma_bar = 0.1
+scalar_precondition
+MSB2
+
+greed_on
+initial_greed 0.3
+:ML_params
+
+PP_params:
+n_linear_steps
+PP_linear
+PP_n = 2
+PP_scaling =  0.1
+:PP_params
+
+%endblock devel_code

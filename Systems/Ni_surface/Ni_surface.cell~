@@ -1,0 +1,15 @@
+%block lattice_abc
+  3.50803634  3.50803634  23.50803634
+  90 90 90
+%endblock lattice_abc
+
+%block positions_frac
+  Ni 0.000000  0.000000  0.000000  
+  Ni 0.000000  1.75401817  1.75401817
+  Ni 1.75401817  0.000000  1.75401817  
+  Ni 1.75401817  1.75401817  0.000000  
+%endblock positions_frac
+
+kpoint_mp_grid 11 11 1
+
+

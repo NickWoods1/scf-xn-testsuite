@@ -1,0 +1,20 @@
+%block lattice_abc
+  7.696 7.6703 7.731
+  90      90      90
+%endblock lattice_abc
+
+%block positions_frac
+Nd 0.2622 0 0 
+Nd 0.2593 0 0.5 
+Ti 0 0.2402 0.259 spin = 0.5
+O 0 0.2762 0 
+O 0 0.1942 0.5 
+O 0 0 0.2002 
+O 0 0.5 0.2822 
+O 0.25 0.25 0.2331 
+%endblock positions_frac
+
+symmetry_generate
+
+kpoints_mp_spacing 0.04
+

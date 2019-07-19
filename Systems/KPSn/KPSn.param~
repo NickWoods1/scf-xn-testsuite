@@ -1,0 +1,36 @@
+cut_off_energy                : 300.0
+task singlepoint
+nextra_bands 46
+xc_functional PBE
+fix_occupancy false
+metals_method dm
+mixing_scheme pulay
+max_scf_cycles 100
+elec_energy_tol    0.0000000001
+mix_history_length 30
+rand_seed 123456
+opt_strategy speed
+page_wvfns 0
+write_checkpoint false
+spin_polarised false
+mix_charge_amp 0.05
+
+%block devel_code
+
+ML_params:
+alpha = 0.0001 
+R = 0.1
+sigma = 0.05
+sigma_bar = 0.1
+kerker_precondition
+MSB2
+:ML_params
+
+PP_params:
+n_linear_steps
+PP_linear
+PP_n = 3
+PP_scaling = 0.1
+:PP_params
+
+%endblock devel_code
