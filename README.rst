@@ -2,6 +2,12 @@
 The scf-:math:`x`\ :sub:`n`\  Test Suite
 ****************************************
 
+*****************
+REFERENCE ARTICLE
+*****************
+This test suite is used for the following article "Computing the self-consistent field in Kohn-Sham density functional theory". This article can be used as a citation for the test suite. 
+
+
 Version 0.1
 ###########
 
